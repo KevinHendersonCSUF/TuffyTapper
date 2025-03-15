@@ -55,7 +55,7 @@ class ShopViewController: MainViewController {
         if playerDefaults.bool(forKey: "autoclicker") == true {
             self.auto.setTitle("Already Purchased!", for: .normal)
 
-        } else if playerDefaults.integer(forKey: "count") < 1500 {
+        } else if playerDefaults.integer(forKey: "count") < 1 {
             self.auto.setTitle("Not enough clicks!", for: .normal)
         }
             else {
@@ -63,7 +63,7 @@ class ShopViewController: MainViewController {
             playerDefaults.set(autoclicker, forKey: "autoclicker")
             print("purchased autoclicker! \(playerDefaults.bool(forKey: "autoclicker"))")
             self.auto.setTitle("Purchased!", for: .normal)
-            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1500, forKey: "count")
+            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1, forKey: "count")
         }
         // Just to see if price properly gets deducted after purchase in xcode debugger thing
         print("\(playerDefaults.integer(forKey: "count"))")
