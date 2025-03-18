@@ -23,7 +23,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="storefront.fill" catalog="system" title="Shop"/>
                                 <connections>
-                                    <segue destination="s5v-80-KqZ" kind="show" id="4DF-Xe-zC9"/>
+                                    <segue destination="s5v-80-KqZ" kind="showDetail" identifier="opnshop" id="4DF-Xe-zC9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taps: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntz-2f-njx">
@@ -66,7 +66,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="lbl" destination="ntz-2f-njx" id="IR9-rZ-TUZ"/>
+                        <outlet property="lbl" destination="ntz-2f-njx" id="FhQ-hh-Btf"/>
                         <outlet property="tuffy" destination="C0k-3i-6Ms" id="gn5-bi-1Lj"/>
                     </connections>
                 </viewController>

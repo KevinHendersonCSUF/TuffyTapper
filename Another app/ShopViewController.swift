@@ -64,6 +64,8 @@ class ShopViewController: MainViewController {
             print("purchased autoclicker! \(playerDefaults.bool(forKey: "autoclicker"))")
             self.auto.setTitle("Purchased!", for: .normal)
             playerDefaults.set(playerDefaults.integer(forKey: "count") - 1, forKey: "count")
+                // auto clicker call
+                passinc()
         }
         // Just to see if price properly gets deducted after purchase in xcode debugger thing
         print("\(playerDefaults.integer(forKey: "count"))")
