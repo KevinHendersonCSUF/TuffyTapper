@@ -12,6 +12,7 @@ import UIKit
 
 class ShopViewController: MainViewController {
     
+    @IBOutlet var Clickcount: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +25,7 @@ class ShopViewController: MainViewController {
             self.auto.setTitle("Purchased!", for: .normal)
 
         }
-        
+        Clickcount.text = "Clicks: \(playerDefaults.integer(forKey: "count"))"
     }
     
     // 4x Taps Upgrade
@@ -43,6 +44,7 @@ class ShopViewController: MainViewController {
             print("purchased 4x money! \(playerDefaults.bool(forKey: "4x"))")
             self.fourpurch.setTitle("Purchased!", for: .normal)
             playerDefaults.set(playerDefaults.integer(forKey: "count") - 200, forKey: "count")
+            Clickcount.text = "Clicks: \(playerDefaults.integer(forKey: "count"))"
         }
         // Just to see if price properly gets deducted after purchase in xcode debugger thing
         print("\(playerDefaults.integer(forKey: "count"))")
@@ -55,7 +57,7 @@ class ShopViewController: MainViewController {
         if playerDefaults.bool(forKey: "autoclicker") == true {
             self.auto.setTitle("Already Purchased!", for: .normal)
 
-        } else if playerDefaults.integer(forKey: "count") < 1 {
+        } else if playerDefaults.integer(forKey: "count") < 1500 {
             self.auto.setTitle("Not enough clicks!", for: .normal)
         }
             else {
@@ -63,9 +65,10 @@ class ShopViewController: MainViewController {
             playerDefaults.set(autoclicker, forKey: "autoclicker")
             print("purchased autoclicker! \(playerDefaults.bool(forKey: "autoclicker"))")
             self.auto.setTitle("Purchased!", for: .normal)
-            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1, forKey: "count")
+            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1500, forKey: "count")
                 // auto clicker call
                 passinc()
+                Clickcount.text = "Clicks: \(playerDefaults.integer(forKey: "count"))"
         }
         // Just to see if price properly gets deducted after purchase in xcode debugger thing
         print("\(playerDefaults.integer(forKey: "count"))")

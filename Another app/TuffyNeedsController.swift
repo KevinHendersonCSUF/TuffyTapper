@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TuffyNeedsController: UIViewController {
+class TuffyNeedsController: MainViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()

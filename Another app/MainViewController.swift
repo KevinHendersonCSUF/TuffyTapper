@@ -23,11 +23,20 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     // will allow for only one passinc() call per app launch
     var autocheck = false
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "navigationSegue"{
         let shopview = segue.destination as! ShopViewController
         //Carries lbl variable over to shopviewcontroller so that it doesnt return nil when activating segue
         shopview.lbl = lbl
         shopview.autocheck = autocheck
+    }
+        if segue.identifier == "tuffyshopsegue"{
+            let tufshop = segue.destination as! TuffyNeedsController
+        //Carries lbl variable over to shopviewcontroller so that it doesnt return nil when activating segue
+            tufshop.lbl = lbl
+            tufshop.autocheck = autocheck
+    }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
