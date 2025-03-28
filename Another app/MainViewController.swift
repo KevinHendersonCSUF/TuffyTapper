@@ -37,6 +37,12 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             tufshop.lbl = lbl
             tufshop.autocheck = autocheck
     }
+        if segue.identifier == "two"{
+            let tiertime = segue.destination as! TwoTimeViewController
+        //Carries lbl variable over to shopviewcontroller so that it doesnt return nil when activating segue
+            tiertime.lbl = lbl
+            tiertime.autocheck = autocheck
+    }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,9 +92,15 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         print("Creating New Game!")
         playerDefaults.set(0, forKey: "count")
         self.lbl.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
+        //upgrades reset
         playerDefaults.set(false, forKey: "4x")
         playerDefaults.set(false, forKey: "autoclicker")
-        //add rest of upgrades when added
+        //upgrade tier reset
+        playerDefaults.set(1, forKey: "times")
+        playerDefaults.set(false, forKey: "t1")
+        playerDefaults.set(false, forKey: "t2")
+        playerDefaults.set(false, forKey: "t3")
+        playerDefaults.set(false, forKey: "t4")
     }
     
     //Tuffy Button
@@ -109,7 +121,8 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         //check if 4x money is purchased
         if playerDefaults.bool(forKey: "4x") == true {
             print("\(playerDefaults.bool(forKey: "4x"))")
-            cnt += 4
+            print("\(playerDefaults.integer(forKey: "times"))")
+            cnt += playerDefaults.integer(forKey: "times")
         } else{
             cnt += 1
         }

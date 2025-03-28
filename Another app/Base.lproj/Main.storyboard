@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vm-2V-xrC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20.610687022900763" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="929" y="-998"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -116,7 +116,123 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rk8-Xk-fgs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1801" y="648"/>
+            <point key="canvasLocation" x="1840" y="739"/>
+        </scene>
+        <!--Two Time View Controller-->
+        <scene sceneID="mNa-Z0-CCa">
+            <objects>
+                <viewController id="gJB-IZ-NXm" customClass="TwoTimeViewController" customModule="Tuffy_Tapper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7co-Zm-SEr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YL6-ba-jUr">
+                                <rect key="frame" x="77" y="124" width="239" height="4"/>
+                                <color key="progressTintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tier Upgrade Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95n-GR-duR">
+                                <rect key="frame" x="110.66666666666669" y="95" width="172" height="21"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G6S-Ql-UuD">
+                                <rect key="frame" x="10" y="499.99999999999994" width="373" height="34.333333333333314"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMP LABEL TILL TUFFY ANIMATION IS MADE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjX-Hd-I3y">
+                                <rect key="frame" x="16" y="218" width="358" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OI8-Gp-CVB">
+                                <rect key="frame" x="10" y="471" width="373" height="34.333333333333336"/>
+                                <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Tier I - 4x Taps | PRICE: 400 Taps"/>
+                                <connections>
+                                    <action selector="t1purch:" destination="gJB-IZ-NXm" eventType="touchUpInside" id="IfK-PE-L0m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eu1-99-SuG">
+                                <rect key="frame" x="10" y="600" width="373" height="34.333333333333343"/>
+                                <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Tier IV - 4x Taps | PRICE: 3200 Taps"/>
+                                <connections>
+                                    <action selector="t4purch:" destination="gJB-IZ-NXm" eventType="touchUpInside" id="BEZ-GV-cpq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYf-U1-75s">
+                                <rect key="frame" x="10" y="557" width="373" height="34.333333333333343"/>
+                                <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Tier III - 12x Taps | PRICE: 2400 Taps"/>
+                                <connections>
+                                    <action selector="t3purch:" destination="gJB-IZ-NXm" eventType="touchUpInside" id="EGQ-4n-QTQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RL8-XZ-Dmw">
+                                <rect key="frame" x="10" y="514" width="373" height="34.333333333333336"/>
+                                <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Tier II - 8x Taps | PRICE: 1600 Taps"/>
+                                <connections>
+                                    <action selector="t2purch:" destination="gJB-IZ-NXm" eventType="touchUpInside" id="Zi2-tJ-uZh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taps: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHQ-d7-CMp">
+                                <rect key="frame" x="16" y="683" width="358" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Caa-Kr-HcR"/>
+                        <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="leading" secondItem="Caa-Kr-HcR" secondAttribute="leading" constant="10" id="2Dz-9e-CTE"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="trailing" secondItem="Caa-Kr-HcR" secondAttribute="trailing" constant="-10" id="5o8-h1-1tx"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="centerX" secondItem="YL6-ba-jUr" secondAttribute="centerX" id="7aD-tQ-DSr"/>
+                            <constraint firstItem="YL6-ba-jUr" firstAttribute="leading" secondItem="Caa-Kr-HcR" secondAttribute="leading" constant="77" id="AF5-8Y-OGd"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="centerX" secondItem="95n-GR-duR" secondAttribute="centerX" id="BBI-dT-h4W"/>
+                            <constraint firstItem="RL8-XZ-Dmw" firstAttribute="centerX" secondItem="YL6-ba-jUr" secondAttribute="centerX" id="Bjf-n6-hAD"/>
+                            <constraint firstItem="GYf-U1-75s" firstAttribute="top" secondItem="RL8-XZ-Dmw" secondAttribute="bottom" constant="8.6666666666666288" id="CXr-59-Ut0"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="top" secondItem="Caa-Kr-HcR" secondAttribute="top" constant="500" id="GVg-Er-vha"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="leading" secondItem="OI8-Gp-CVB" secondAttribute="leading" id="LAg-Rx-bgw"/>
+                            <constraint firstItem="xjX-Hd-I3y" firstAttribute="leading" secondItem="7co-Zm-SEr" secondAttribute="leadingMargin" id="PWF-ps-5Ju"/>
+                            <constraint firstItem="eu1-99-SuG" firstAttribute="top" secondItem="GYf-U1-75s" secondAttribute="bottom" constant="8.6666666666666288" id="Snh-zj-7vG"/>
+                            <constraint firstItem="xjX-Hd-I3y" firstAttribute="top" secondItem="YL6-ba-jUr" secondAttribute="bottom" constant="90" id="Sqx-dW-1MM"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="leading" secondItem="RL8-XZ-Dmw" secondAttribute="leading" id="WEA-lx-QnQ"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="trailing" secondItem="GYf-U1-75s" secondAttribute="trailing" id="b8W-Wd-Q1I"/>
+                            <constraint firstItem="GYf-U1-75s" firstAttribute="top" secondItem="G6S-Ql-UuD" secondAttribute="bottom" constant="22.666666666666742" id="dym-bV-glv"/>
+                            <constraint firstItem="eu1-99-SuG" firstAttribute="centerX" secondItem="YL6-ba-jUr" secondAttribute="centerX" id="h2K-KK-9aD"/>
+                            <constraint firstItem="YL6-ba-jUr" firstAttribute="top" secondItem="7co-Zm-SEr" secondAttribute="top" constant="124" id="h7a-cE-w4q"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="leading" secondItem="eu1-99-SuG" secondAttribute="leading" id="hdC-MN-s5n"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="trailing" secondItem="eu1-99-SuG" secondAttribute="trailing" id="iEQ-3L-z0x"/>
+                            <constraint firstItem="YL6-ba-jUr" firstAttribute="top" secondItem="95n-GR-duR" secondAttribute="bottom" constant="8" id="lPi-iO-0ac"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="trailing" secondItem="RL8-XZ-Dmw" secondAttribute="trailing" id="mRi-mm-JIP"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="leading" secondItem="GYf-U1-75s" secondAttribute="leading" id="p1s-Nc-YJ2"/>
+                            <constraint firstItem="RL8-XZ-Dmw" firstAttribute="top" secondItem="OI8-Gp-CVB" secondAttribute="bottom" constant="8.6666666666666856" id="rZc-Iw-wGN"/>
+                            <constraint firstItem="G6S-Ql-UuD" firstAttribute="trailing" secondItem="OI8-Gp-CVB" secondAttribute="trailing" id="szh-Xz-o1A"/>
+                            <constraint firstAttribute="bottom" secondItem="G6S-Ql-UuD" secondAttribute="bottom" constant="307.66666666666674" id="tSD-tx-PkU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cntlbl" destination="gHQ-d7-CMp" id="OJE-Gg-giY"/>
+                        <outlet property="progbar" destination="YL6-ba-jUr" id="oaU-q2-trd"/>
+                        <outlet property="t1" destination="OI8-Gp-CVB" id="Xfk-f2-OvG"/>
+                        <outlet property="t2" destination="RL8-XZ-Dmw" id="Rhh-ZD-GKv"/>
+                        <outlet property="t3" destination="GYf-U1-75s" id="u39-Mi-Ro2"/>
+                        <outlet property="t4" destination="eu1-99-SuG" id="5Hd-j5-AcI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1so-du-NzB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-851.14503816793888" y="920.4225352112677"/>
         </scene>
         <!--Shop View Controller-->
         <scene sceneID="jNs-wG-nE5">
@@ -127,7 +243,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JAQ-ph-bZs">
-                                <rect key="frame" x="10" y="70" width="373" height="109.33333333333331"/>
+                                <rect key="frame" x="10" y="70" width="373" height="178"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passive Income | PRICE: 1500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTU-R9-LkM">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="20.333333333333332"/>
@@ -136,8 +252,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="me1-6e-8Tw">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-kC-9I2">
                                         <rect key="frame" x="0.0" y="20.333333333333332" width="373" height="34.333333333333343"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="lock.fill" catalog="system" title="Tier Upgrade"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="me1-6e-8Tw">
+                                        <rect key="frame" x="0.0" y="54.666666666666671" width="373" height="34.333333333333329"/>
                                         <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Purchase"/>
@@ -145,15 +267,25 @@
                                             <action selector="purchauto:" destination="s5v-80-KqZ" eventType="touchUpInside" id="i2B-hd-J4i"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earn 4x the Taps! | PRICE: 200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sk4-aS-Obz">
-                                        <rect key="frame" x="0.0" y="54.666666666666679" width="373" height="20.333333333333336"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earn 2x the Taps! | PRICE: 200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sk4-aS-Obz">
+                                        <rect key="frame" x="0.0" y="89" width="373" height="20.333333333333329"/>
                                         <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yy-3P-9Iz">
+                                        <rect key="frame" x="0.0" y="109.33333333333334" width="373" height="34.333333333333343"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Tier Upgrade" image="lock.fill" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="lock.fill" catalog="system" title="Tier Upgrade"/>
+                                        <connections>
+                                            <segue destination="gJB-IZ-NXm" kind="show" identifier="two" id="4Lb-dR-StO"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1x-zV-Tt5">
-                                        <rect key="frame" x="0.0" y="75" width="373" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="143.66666666666666" width="373" height="34.333333333333343"/>
                                         <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Purchase"/>
@@ -163,7 +295,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Clicks:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hk3-zd-bN0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taps:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hk3-zd-bN0">
                                 <rect key="frame" x="16" y="717" width="153" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,16 +317,18 @@
                         <outlet property="Clickcount" destination="hk3-zd-bN0" id="Xju-MX-IOM"/>
                         <outlet property="auto" destination="me1-6e-8Tw" id="fdI-97-x4S"/>
                         <outlet property="fourpurch" destination="S1x-zV-Tt5" id="bkb-xm-C2U"/>
+                        <outlet property="twotimeupgrade" destination="5yy-3P-9Iz" id="xPQ-TF-WVB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGe-AY-oOB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-935.1145038167939" y="-115.49295774647888"/>
+            <point key="canvasLocation" x="95" y="739"/>
         </scene>
     </scenes>
     <resources>
         <image name="Tuffy1" width="500" height="500"/>
         <image name="Tuffy3" width="500" height="500"/>
+        <image name="lock.fill" catalog="system" width="111" height="128"/>
         <image name="storefront.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
