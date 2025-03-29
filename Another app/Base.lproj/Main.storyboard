@@ -26,6 +26,22 @@
             </objects>
             <point key="canvasLocation" x="929" y="-998"/>
         </scene>
+        <!--Autoclick View Controller-->
+        <scene sceneID="RRJ-cB-ZK4">
+            <objects>
+                <viewController id="bMW-Og-MHW" customClass="AutoclickViewController" customModule="Tuffy_Tapper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="90X-8L-Ypb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="1xu-7q-H9m"/>
+                        <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ogf-pj-Kv6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a1W-fo-RGj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-932" y="-29"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -159,7 +175,7 @@
                                 <rect key="frame" x="10" y="600" width="373" height="34.333333333333343"/>
                                 <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Tier IV - 4x Taps | PRICE: 3200 Taps"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Tier IV - 16x Taps | PRICE: 3200 Taps"/>
                                 <connections>
                                     <action selector="t4purch:" destination="gJB-IZ-NXm" eventType="touchUpInside" id="BEZ-GV-cpq"/>
                                 </connections>
@@ -257,6 +273,9 @@
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="lock.fill" catalog="system" title="Tier Upgrade"/>
+                                        <connections>
+                                            <segue destination="bMW-Og-MHW" kind="show" identifier="autotier" id="Pxq-Za-jeQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="me1-6e-8Tw">
                                         <rect key="frame" x="0.0" y="54.666666666666671" width="373" height="34.333333333333329"/>

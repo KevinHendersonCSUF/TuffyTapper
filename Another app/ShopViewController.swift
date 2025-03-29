@@ -50,7 +50,7 @@ class ShopViewController: MainViewController {
             Clickcount.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
             playerDefaults.set(2, forKey: "times")
             twotimeupgrade.isEnabled = true
-            
+            Clickcount.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
             twotimeupgrade.setImage(UIImage(systemName: "lock.open.fill"), for: .normal)
         }
         // Just to see if price properly gets deducted after purchase in xcode debugger thing

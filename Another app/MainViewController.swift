@@ -33,16 +33,19 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     }
         if segue.identifier == "tuffyshopsegue"{
             let tufshop = segue.destination as! TuffyNeedsController
-        //Carries lbl variable over to shopviewcontroller so that it doesnt return nil when activating segue
             tufshop.lbl = lbl
             tufshop.autocheck = autocheck
     }
         if segue.identifier == "two"{
             let tiertime = segue.destination as! TwoTimeViewController
-        //Carries lbl variable over to shopviewcontroller so that it doesnt return nil when activating segue
             tiertime.lbl = lbl
             tiertime.autocheck = autocheck
     }
+        if segue.identifier == "autotier"{
+            let tierauto = segue.destination as! AutoclickViewController
+            tierauto.lbl = lbl
+            tierauto.autocheck = autocheck
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
