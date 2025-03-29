@@ -24,6 +24,8 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     // will allow for only one passinc() call per app launch
     var autocheck = false
     
+    
+    // Used for Segue transition to avoid unexpectedly unwrapping nil error
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "navigationSegue"{
         let shopview = segue.destination as! ShopViewController
@@ -47,6 +49,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             tierauto.autocheck = autocheck
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -59,8 +62,9 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
+    // background queue for background tasks like passive income upgrade, and other timer based effects
     let backgroundqueue = OperationQueue()
+    
     // Function for autoclicker/passive income functionality
     func passinc(){
         print("Auto clicker bool first: \(self.playerDefaults.bool(forKey: "autoclicker"))")
@@ -109,19 +113,21 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     //Tuffy Button
     @IBOutlet weak var tuffy: UIButton!
     
-    // shop upgrade variables
+    // shop upgrade variables (MIGHT NOT BE NEEDED ANYMORE)
     var autoclicker = false
     var fourtime = false
     
     //main Tuffy button functionality
     @IBAction func btn(_ sender: Any) {
+        
         cnt = playerDefaults.integer(forKey: "count")
+        
         //Makes Tuffy Bounce when pressed
         UIView.animate(withDuration: 0.07) {
             self.tuffy.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         }
         
-        //check if 4x money is purchased
+        //check if 2x money is purchased
         if playerDefaults.bool(forKey: "4x") == true {
             print("\(playerDefaults.bool(forKey: "4x"))")
             print("\(playerDefaults.integer(forKey: "times"))")
