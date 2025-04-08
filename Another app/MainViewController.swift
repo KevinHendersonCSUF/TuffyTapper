@@ -7,6 +7,13 @@
 // TODO:
 // * ADD FUNCTIONALITY TO AUTO CLICKER USING MULTITHREADING - DONE, NOW NEED UPGRADES
 //      - * ADD AUTOCLICKER UPGRADES (HOW FAST IT GENERATES MONEY ETC.)
+//      - ^ to do this will need to alter passinc() and play around with resetting operation queue
+//      - once you set conditions in passinc() to check for upgrades, it should be good
+//      - PLANNED UPGRADES TO AUTOCLICKER (NOW CALLED PASSIVE INCOME)
+//          - First upgrade will increase how fast taps are generated (alters the sleep() timer)
+//          - Second upgrade will sync amount of taps generated per second with the 2x taps upgrade
+//              - Example: if 8x taps is unlocked then passive income will generate 8 taps each call instead of 1
+//          - THINK OF MORE UPGRADES LATER
 // * ADD DIFFERENT MINIGAMES
 // * ADD MORE UPGRADES
 // * ADD A PROPER MENU
@@ -71,7 +78,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         let autoclickop = BlockOperation {
             while self.playerDefaults.bool(forKey: "autoclicker") == true {
                 self.cnt = self.playerDefaults.integer(forKey: "count")
-                self.cnt += 1
+                self.cnt += 1 // this line will be changed to a bunch of if else statements for 2x taps sync upgrades
                 self.playerDefaults.set(self.cnt, forKey: "count")
                 
                 print(self.cnt)
