@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Iz-Fr-YzZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Iz-Fr-YzZ">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Iz-Fr-YzZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HyK-x5-WkG">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -31,16 +31,73 @@
             <objects>
                 <viewController id="bMW-Og-MHW" customClass="AutoclickViewController" customModule="Tuffy_Tapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="90X-8L-Ypb">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fwR-DU-bCi">
+                                <rect key="frame" x="88" y="112" width="217" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tier Upgrade Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaK-24-fLx">
+                                <rect key="frame" x="110" y="83" width="172" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEMP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra9-sa-aFf">
+                                <rect key="frame" x="175" y="166" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rie-z0-6hO">
+                                <rect key="frame" x="10" y="433" width="373" height="54.333333333333314"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Tier I - Faster Tap Generation | PRICE: 2500 Taps">
+                                    <color key="baseBackgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="purchT1:" destination="bMW-Og-MHW" eventType="touchUpInside" id="agl-3Q-bFO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fT9-e9-J3o">
+                                <rect key="frame" x="10" y="496" width="373" height="54.333333333333314"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Tier II - Merge with 16x Taps | PRICE: 5000 Taps (Tier IV MUST BE PURCHASED)"/>
+                                <connections>
+                                    <action selector="purchT2:" destination="bMW-Og-MHW" eventType="touchUpInside" id="HAH-cI-HUi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taps:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3a-GL-NCa">
+                                <rect key="frame" x="16" y="693" width="336" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="1xu-7q-H9m"/>
                         <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ogf-pj-Kv6"/>
+                    <connections>
+                        <outlet property="at1" destination="Rie-z0-6hO" id="RlW-d6-Jzg"/>
+                        <outlet property="at2" destination="fT9-e9-J3o" id="XKF-1g-VfK"/>
+                        <outlet property="cntlbl" destination="k3a-GL-NCa" id="iv9-NV-wp2"/>
+                        <outlet property="progbar" destination="fwR-DU-bCi" id="acG-lE-6E4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1W-fo-RGj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-932" y="-29"/>
+            <point key="canvasLocation" x="-932.06106870229007" y="-29.577464788732396"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -69,7 +126,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="661-c1-qEh">
-                                <rect key="frame" x="10" y="133" width="373" height="35"/>
+                                <rect key="frame" x="10" y="192" width="373" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="New Game">
                                     <color key="baseBackgroundColor" systemColor="tintColor"/>
@@ -124,7 +181,7 @@
             <objects>
                 <viewController id="1s8-iq-RBt" customClass="TuffyNeedsController" customModule="Tuffy_Tapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d1L-hv-Hdy">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="ciU-UL-TKc"/>
                         <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -138,8 +195,8 @@
         <scene sceneID="mNa-Z0-CCa">
             <objects>
                 <viewController id="gJB-IZ-NXm" customClass="TwoTimeViewController" customModule="Tuffy_Tapper" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7co-Zm-SEr">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="7co-Zm-SEr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YL6-ba-jUr">
@@ -153,8 +210,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G6S-Ql-UuD">
-                                <rect key="frame" x="10" y="499.99999999999994" width="373" height="34.333333333333314"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G6S-Ql-UuD">
+                                <rect key="frame" x="10" y="500" width="373" height="34.333333333333258"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMP LABEL TILL TUFFY ANIMATION IS MADE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjX-Hd-I3y">
                                 <rect key="frame" x="16" y="218" width="358" height="21"/>
@@ -162,7 +219,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OI8-Gp-CVB">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OI8-Gp-CVB">
                                 <rect key="frame" x="10" y="471" width="373" height="34.333333333333336"/>
                                 <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
@@ -171,7 +228,7 @@
                                     <action selector="t1purch:" destination="gJB-IZ-NXm" eventType="touchUpInside" id="IfK-PE-L0m"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eu1-99-SuG">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eu1-99-SuG">
                                 <rect key="frame" x="10" y="600" width="373" height="34.333333333333343"/>
                                 <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
@@ -180,7 +237,7 @@
                                     <action selector="t4purch:" destination="gJB-IZ-NXm" eventType="touchUpInside" id="BEZ-GV-cpq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYf-U1-75s">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYf-U1-75s">
                                 <rect key="frame" x="10" y="557" width="373" height="34.333333333333343"/>
                                 <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
@@ -189,7 +246,7 @@
                                     <action selector="t3purch:" destination="gJB-IZ-NXm" eventType="touchUpInside" id="EGQ-4n-QTQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RL8-XZ-Dmw">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RL8-XZ-Dmw">
                                 <rect key="frame" x="10" y="514" width="373" height="34.333333333333336"/>
                                 <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
@@ -255,11 +312,11 @@
             <objects>
                 <viewController id="s5v-80-KqZ" customClass="ShopViewController" customModule="Tuffy_Tapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M2B-tM-uV4">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JAQ-ph-bZs">
-                                <rect key="frame" x="10" y="70" width="373" height="178"/>
+                                <rect key="frame" x="10" y="129" width="373" height="178"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passive Income | PRICE: 1500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTU-R9-LkM">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="20.333333333333332"/>
@@ -268,8 +325,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-kC-9I2">
-                                        <rect key="frame" x="0.0" y="20.333333333333332" width="373" height="34.333333333333343"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-kC-9I2">
+                                        <rect key="frame" x="0.0" y="20.333333333333346" width="373" height="34.333333333333343"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="lock.fill" catalog="system" title="Tier Upgrade"/>
@@ -278,7 +335,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="me1-6e-8Tw">
-                                        <rect key="frame" x="0.0" y="54.666666666666671" width="373" height="34.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="54.666666666666657" width="373" height="34.333333333333343"/>
                                         <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Purchase"/>
@@ -304,7 +361,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1x-zV-Tt5">
-                                        <rect key="frame" x="0.0" y="143.66666666666666" width="373" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="143.66666666666669" width="373" height="34.333333333333343"/>
                                         <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Purchase"/>
@@ -333,6 +390,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vkc-yp-AG9"/>
                     <connections>
+                        <outlet property="Autobutt" destination="w7i-kC-9I2" id="ziT-f9-KgC"/>
                         <outlet property="Clickcount" destination="hk3-zd-bN0" id="Xju-MX-IOM"/>
                         <outlet property="auto" destination="me1-6e-8Tw" id="fdI-97-x4S"/>
                         <outlet property="fourpurch" destination="S1x-zV-Tt5" id="bkb-xm-C2U"/>
@@ -353,7 +411,7 @@
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

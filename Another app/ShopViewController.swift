@@ -27,6 +27,10 @@ class ShopViewController: MainViewController {
             // add tier upgrade button lock/unlock logic
         }
         Clickcount.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
+        if playerDefaults.bool(forKey: "autoclicker") == true {
+            Autobutt.isEnabled = true
+            Autobutt.setImage(UIImage(systemName: "lock.open.fill"), for: .normal)
+        }
     }
     
     // 2x Taps Upgrade tier Button
@@ -56,7 +60,10 @@ class ShopViewController: MainViewController {
         // Just to see if price properly gets deducted after purchase in xcode debugger thing
         print("\(playerDefaults.integer(forKey: "count"))")
     }
-    //add UIoutlet for tier upgrade, set to disabled in att inspector, then copy logic from fourpurch
+    
+    // CHANGE PRICE BACK TO 1500 AFTER TESTING
+    //Tier Upgrade button for passive income
+    @IBOutlet var Autobutt: UIButton!
     // Passive Income upgrade
     @IBOutlet weak var auto: UIButton!
     @IBAction func purchauto(_ sender: Any) {
@@ -64,7 +71,7 @@ class ShopViewController: MainViewController {
         if playerDefaults.bool(forKey: "autoclicker") == true {
             self.auto.setTitle("Already Purchased!", for: .normal)
 
-        } else if playerDefaults.integer(forKey: "count") < 1500 {
+        } else if playerDefaults.integer(forKey: "count") < 1 {
             self.auto.setTitle("Not enough clicks!", for: .normal)
         }
             else {
@@ -72,10 +79,12 @@ class ShopViewController: MainViewController {
             playerDefaults.set(autoclicker, forKey: "autoclicker")
             print("purchased autoclicker! \(playerDefaults.bool(forKey: "autoclicker"))")
             self.auto.setTitle("Purchased!", for: .normal)
-            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1500, forKey: "count")
+            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1, forKey: "count")
                 // auto clicker call
                 passinc()
                 Clickcount.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
+                Autobutt.isEnabled = true
+                Autobutt.setImage(UIImage(systemName: "lock.open.fill"), for: .normal)
         }
         // Just to see if price properly gets deducted after purchase in xcode debugger thing
         print("\(playerDefaults.integer(forKey: "count"))")

@@ -17,13 +17,63 @@ import UIKit
 
 class AutoclickViewController: MainViewController {
 
+    @IBOutlet var progbar: UIProgressView!
+    @IBOutlet var cntlbl: UILabel!
+    @IBOutlet var at1: UIButton!
+    @IBOutlet var at2: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        cntlbl.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
         // Do any additional setup after loading the view.
+        if playerDefaults.bool(forKey: "at1") == true {
+            at1.isEnabled = false
+            print("at1 unlocked")
+            progbar.setProgress(0.5, animated: true)
+            if playerDefaults.bool(forKey: "at2") == false {
+                at2.isEnabled = true
+            }
+        }
+        if playerDefaults.bool(forKey: "at2") == true {
+            at2.isEnabled = false
+            print("t2 unlocked")
+            progbar.setProgress(1, animated: true)
+        }
+    }
+    // CHANGE PRICE BACK TO 2500 AFTER TESTING
+    @IBAction func purchT1(_ sender: Any) {
+        if playerDefaults.integer(forKey: "count") < 1 {
+            at1.setTitle( "Not enough taps!", for: .normal)
+        }
+        else if playerDefaults.integer(forKey: "count") >= 1 {
+            playerDefaults.set(true, forKey: "at1")
+            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1, forKey: "count")
+            // update the sleep value used in passinc()
+            playerDefaults.set(1, forKey: "sleep")
+            at1.isEnabled = false
+            at2.isEnabled = true
+            progbar.setProgress(0.5, animated: true)
+            cntlbl.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
+        }
+        
+        
+    }
+    // CHANGE PRICE BACK TO 5000 AFTER TESTING
+    @IBAction func purchT2(_ sender: Any) {
+        if playerDefaults.integer(forKey: "count") < 1{
+            at2.setTitle( "Not enough taps!", for: .normal)
+        }
+        else if playerDefaults.integer(forKey: "count") >= 1 && playerDefaults.bool(forKey: "t4") == true {
+            playerDefaults.set(true, forKey: "at2")
+            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1, forKey: "count")
+
+            at2.isEnabled = false
+            progbar.setProgress(1, animated: true)
+            cntlbl.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
+        } else{
+            at2.setTitle( "Tier IV of 2x Taps required!", for: .normal)
+        }
     }
     
-
     /*
     // MARK: - Navigation
 

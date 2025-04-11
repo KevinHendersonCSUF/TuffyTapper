@@ -16,6 +16,7 @@
 //          - THINK OF MORE UPGRADES LATER
 // * ADD DIFFERENT MINIGAMES
 // * ADD MORE UPGRADES
+//      - For example, an upgrade to decrease rate of decay for hunger and an upgrade to decrease rate of decay for thirst
 // * ADD A PROPER MENU
 
 import UIKit
@@ -78,7 +79,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         let autoclickop = BlockOperation {
             while self.playerDefaults.bool(forKey: "autoclicker") == true {
                 self.cnt = self.playerDefaults.integer(forKey: "count")
-                self.cnt += 1 // this line will be changed to a bunch of if else statements for 2x taps sync upgrades
+                //Check if Tier 2 is unlocked
+                if self.playerDefaults.bool(forKey: "at2") == true {
+                    print("TIER 2 UNLOCKED")
+                    self.cnt += self.playerDefaults.integer(forKey: "times")
+                } else {
+                    self.cnt += 1
+                }
                 self.playerDefaults.set(self.cnt, forKey: "count")
                 
                 print(self.cnt)
@@ -88,13 +95,20 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                         self.lbl.text = "Taps: \(self.playerDefaults.integer(forKey: "count"))"
                 }
                 print("Auto clicker bool: \(self.playerDefaults.bool(forKey: "autoclicker"))")
-                //ADD IF STATEMENTS TO SET VARIOUS UPGRADES THAT CAN REDUCE THIS TIMER
-                sleep(2)
+                
+                //Check if Tier 1 is unlocked
+                if self.playerDefaults.bool(forKey: "at1") == true{
+                    print("SLEEP = 1")
+                    sleep(UInt32(self.playerDefaults.integer(forKey: "sleep")))
+                } else {
+                    print("SLEEP = 2")
+                    sleep(2)
+                }
+                
             }
         }
         if self.playerDefaults.bool(forKey: "autoclicker") == true {
-            // NEED TO ADD SOME OTHER CONIDTIONAL TO MAKE SURE THIS ONLY GETS ADDED ONCE BECAUSE OF VIEWDIDLOAD
-            // Adding an operation queue for background thread
+            // Adding to operation queue as a background thread
             print("Adding autoclick operation to queue")
             backgroundqueue.addOperation(autoclickop)
             
@@ -109,12 +123,15 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         //upgrades reset
         playerDefaults.set(false, forKey: "4x")
         playerDefaults.set(false, forKey: "autoclicker")
-        //upgrade tier reset
+        //upgrade tier reset for 2x upgrade
         playerDefaults.set(1, forKey: "times")
         playerDefaults.set(false, forKey: "t1")
         playerDefaults.set(false, forKey: "t2")
         playerDefaults.set(false, forKey: "t3")
         playerDefaults.set(false, forKey: "t4")
+        //upgrade tier reset for passinc()
+        playerDefaults.set(false, forKey: "at1")
+        playerDefaults.set(false, forKey: "at2")
     }
     
     //Tuffy Button
