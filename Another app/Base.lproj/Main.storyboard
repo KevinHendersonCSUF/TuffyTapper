@@ -163,10 +163,16 @@
                                 <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="Keycheck:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="MNt-2G-hwA"/>
-                                </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3w-bZ-VR6">
+                                <rect key="frame" x="246" y="88" width="27" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="return" catalog="system"/>
+                                <connections>
+                                    <action selector="Keychecker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PBq-ac-TBw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -429,6 +435,7 @@
         <image name="Tuffy1" width="500" height="500"/>
         <image name="Tuffy3" width="500" height="500"/>
         <image name="lock.fill" catalog="system" width="111" height="128"/>
+        <image name="return" catalog="system" width="128" height="102"/>
         <image name="storefront.fill" catalog="system" width="128" height="116"/>
         <image name="tshirt.fill" catalog="system" width="128" height="98"/>
         <systemColor name="systemYellowColor">

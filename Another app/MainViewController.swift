@@ -170,10 +170,9 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         tuffy.transform = CGAffineTransform(scaleX: 1, y: 1)
     }
     //
-    
+    //Dev Mode for testing
     @IBOutlet var devinp: UITextField!
-    // DONT FUCKIN WORK
-    @IBAction func Keycheck(_ sender: Any) {
+    @IBAction func Keychecker(_ sender: Any) {
         if devinp.text == "dev" {
             playerDefaults.set(999999999, forKey: "count")
         }
