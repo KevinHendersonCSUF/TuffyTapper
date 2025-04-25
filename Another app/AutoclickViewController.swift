@@ -41,12 +41,12 @@ class AutoclickViewController: MainViewController {
     }
     // CHANGE PRICE BACK TO 2500 AFTER TESTING
     @IBAction func purchT1(_ sender: Any) {
-        if playerDefaults.integer(forKey: "count") < 1 {
+        if playerDefaults.integer(forKey: "count") < 2500 {
             at1.setTitle( "Not enough taps!", for: .normal)
         }
-        else if playerDefaults.integer(forKey: "count") >= 1 {
+        else if playerDefaults.integer(forKey: "count") >= 2500 {
             playerDefaults.set(true, forKey: "at1")
-            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1, forKey: "count")
+            playerDefaults.set(playerDefaults.integer(forKey: "count") - 2500, forKey: "count")
             // update the sleep value used in passinc()
             playerDefaults.set(1, forKey: "sleep")
             at1.isEnabled = false
@@ -59,12 +59,12 @@ class AutoclickViewController: MainViewController {
     }
     // CHANGE PRICE BACK TO 5000 AFTER TESTING
     @IBAction func purchT2(_ sender: Any) {
-        if playerDefaults.integer(forKey: "count") < 1{
+        if playerDefaults.integer(forKey: "count") < 5000 {
             at2.setTitle( "Not enough taps!", for: .normal)
         }
-        else if playerDefaults.integer(forKey: "count") >= 1 && playerDefaults.bool(forKey: "t4") == true {
+        else if playerDefaults.integer(forKey: "count") >= 5000 && playerDefaults.bool(forKey: "t4") == true {
             playerDefaults.set(true, forKey: "at2")
-            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1, forKey: "count")
+            playerDefaults.set(playerDefaults.integer(forKey: "count") - 5000, forKey: "count")
 
             at2.isEnabled = false
             progbar.setProgress(1, animated: true)

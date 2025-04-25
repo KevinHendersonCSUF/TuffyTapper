@@ -148,40 +148,25 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPt-eh-aO9">
-                                <rect key="frame" x="241" y="783" width="121" height="35"/>
+                                <rect key="frame" x="232" y="783" width="139" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Tuffy's Shop"/>
+                                <buttonConfiguration key="configuration" style="plain" image="tshirt.fill" catalog="system" title="Cosmetics"/>
                                 <connections>
                                     <segue destination="1s8-iq-RBt" kind="showDetail" identifier="tuffyshopsegue" id="DWL-5T-Ldu"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="J8l-ca-rlN">
-                                <rect key="frame" x="16" y="311" width="150" height="4"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dev Key" textAlignment="natural" minimumFontSize="17" id="Zbn-mz-6aA">
+                                <rect key="frame" x="156" y="88" width="81" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                            </progressView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="CzV-tA-CHD">
-                                <rect key="frame" x="212" y="311" width="150" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thirst" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-uq-ufF">
-                                <rect key="frame" x="266" y="282" width="44" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hunger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqs-Hn-1Ls">
-                                <rect key="frame" x="63" y="282" width="57" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="Keycheck:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="MNt-2G-hwA"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -191,8 +176,11 @@
                             <constraint firstItem="661-c1-qEh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="zEi-Ii-xxA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9rJ-NJ-dOR"/>
+                    <navigationItem key="navigationItem" id="9rJ-NJ-dOR">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="devinp" destination="Zbn-mz-6aA" id="AY0-3l-qjE"/>
                         <outlet property="lbl" destination="ntz-2f-njx" id="FhQ-hh-Btf"/>
                         <outlet property="tuffy" destination="C0k-3i-6Ms" id="gn5-bi-1Lj"/>
                     </connections>
@@ -209,28 +197,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hru-qS-PKp">
-                                <rect key="frame" x="10" y="79" width="373" height="103"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t56-aC-loj">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="34.333333333333336"/>
-                                        <color key="tintColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="tshirt.fill" catalog="system" title="Cosmetics"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMG-tO-Yel">
-                                        <rect key="frame" x="0.0" y="34.333333333333329" width="373" height="34.333333333333329"/>
-                                        <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="fork.knife" catalog="system" title="Food &amp; Water"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrj-c7-HBz">
-                                        <rect key="frame" x="0.0" y="68.666666666666657" width="373" height="34.333333333333343"/>
-                                        <color key="tintColor" systemColor="systemYellowColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="door.left.hand.open" catalog="system" title="Leash (Unlocks Minigames) | PRICE: 5000"/>
-                                    </button>
-                                </subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hru-qS-PKp">
+                                <rect key="frame" x="10" y="79" width="373" height="34.333333333333343"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ciU-UL-TKc"/>
@@ -460,14 +428,9 @@
     <resources>
         <image name="Tuffy1" width="500" height="500"/>
         <image name="Tuffy3" width="500" height="500"/>
-        <image name="door.left.hand.open" catalog="system" width="108" height="128"/>
-        <image name="fork.knife" catalog="system" width="94" height="128"/>
         <image name="lock.fill" catalog="system" width="111" height="128"/>
         <image name="storefront.fill" catalog="system" width="128" height="116"/>
         <image name="tshirt.fill" catalog="system" width="128" height="98"/>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
