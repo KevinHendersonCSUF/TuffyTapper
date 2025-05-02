@@ -61,17 +61,15 @@ class ShopViewController: MainViewController {
         print("\(playerDefaults.integer(forKey: "count"))")
     }
     
-    // CHANGE PRICE BACK TO 1500 AFTER TESTING
     //Tier Upgrade button for passive income
     @IBOutlet var Autobutt: UIButton!
     // Passive Income upgrade
     @IBOutlet weak var auto: UIButton!
     @IBAction func purchauto(_ sender: Any) {
-        //change price to 1000 or more after testing
         if playerDefaults.bool(forKey: "autoclicker") == true {
             self.auto.setTitle("Already Purchased!", for: .normal)
 
-        } else if playerDefaults.integer(forKey: "count") < 1 {
+        } else if playerDefaults.integer(forKey: "count") < 1500 {
             self.auto.setTitle("Not enough clicks!", for: .normal)
         }
             else {
@@ -79,7 +77,7 @@ class ShopViewController: MainViewController {
             playerDefaults.set(autoclicker, forKey: "autoclicker")
             print("purchased autoclicker! \(playerDefaults.bool(forKey: "autoclicker"))")
             self.auto.setTitle("Purchased!", for: .normal)
-            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1, forKey: "count")
+            playerDefaults.set(playerDefaults.integer(forKey: "count") - 1500, forKey: "count")
                 // auto clicker call
                 passinc()
                 Clickcount.text = "Taps: \(playerDefaults.integer(forKey: "count"))"

@@ -264,7 +264,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         animateLabelBounce(lbl)
         showFloatingText(value: gain, at: CGPoint(x: lbl.center.x, y: lbl.frame.minY))
 
-        // Reset elephant to original size
+        // Reset Tuffy to original size
         tuffy.transform = CGAffineTransform.identity
     }
 
@@ -274,6 +274,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     @IBAction func Keychecker(_ sender: Any) {
         if devinp.text == "dev" {
             playerDefaults.set(999999999, forKey: "count")
+            self.lbl.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
         }
         print("return pressed")
         if devinp.text == "slot" {
