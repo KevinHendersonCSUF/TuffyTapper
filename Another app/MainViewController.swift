@@ -163,12 +163,12 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                     self.cnt += 1
                 }
                 self.playerDefaults.set(self.cnt, forKey: "count")
-                
                 print(self.cnt)
                 
                 //Performing label text update on main thread using Grand Central Dispatch
                 DispatchQueue.main.async{
                         self.lbl.text = "Taps: \(self.playerDefaults.integer(forKey: "count"))"
+                        self.showFloatingText(value: self.playerDefaults.integer(forKey: "times"), at: CGPoint(x: self.lbl.center.x, y: self.lbl.frame.minY))
                 }
                 
                 // Minigame trigger check
