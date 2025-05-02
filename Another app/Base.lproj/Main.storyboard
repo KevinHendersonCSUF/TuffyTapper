@@ -430,6 +430,14 @@
             </objects>
             <point key="canvasLocation" x="95" y="739"/>
         </scene>
+        <!--SlotMachineViewController-->
+        <scene sceneID="h4I-na-6G3">
+            <objects>
+                <viewController storyboardIdentifier="SlotMachineViewController" title="SlotMachineViewController" id="flo-Om-WVI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hxK-2s-NNm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="-1609"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Tuffy1" width="500" height="500"/>
@@ -442,7 +450,7 @@
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
