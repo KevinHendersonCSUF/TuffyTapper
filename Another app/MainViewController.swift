@@ -73,7 +73,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     }
 
     
-    // Used for Segue transition to avoid unexpectedly unwrapping nil error
+    // Used for Segue transition to avoid unexpectedly unwrapping nil error by passing variables to destination viewcontroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "navigationSegue"{
         let shopview = segue.destination as! ShopViewController
@@ -95,6 +95,11 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             let tierauto = segue.destination as! AutoclickViewController
             tierauto.lbl = lbl
             tierauto.autocheck = autocheck
+        }
+        if segue.identifier == "mini"{
+            let min = segue.destination as! MiniupViewController
+            min.lbl = lbl
+            min.autocheck = autocheck
         }
     }
     
@@ -159,8 +164,14 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                 if self.playerDefaults.bool(forKey: "at2") == true {
                     print("TIER 2 UNLOCKED")
                     self.cnt += self.playerDefaults.integer(forKey: "times")
+                    DispatchQueue.main.async{
+                            self.showFloatingText(value: self.playerDefaults.integer(forKey: "times"), at: CGPoint(x: self.lbl.center.x, y: self.lbl.frame.minY))
+                    }
                 } else {
                     self.cnt += 1
+                    DispatchQueue.main.async{
+                            self.showFloatingText(value: 1, at: CGPoint(x: self.lbl.center.x, y: self.lbl.frame.minY))
+                    }
                 }
                 self.playerDefaults.set(self.cnt, forKey: "count")
                 print(self.cnt)
@@ -168,11 +179,18 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                 //Performing label text update on main thread using Grand Central Dispatch
                 DispatchQueue.main.async{
                         self.lbl.text = "Taps: \(self.playerDefaults.integer(forKey: "count"))"
-                        self.showFloatingText(value: self.playerDefaults.integer(forKey: "times"), at: CGPoint(x: self.lbl.center.x, y: self.lbl.frame.minY))
                 }
                 
                 // Minigame trigger check
-                let chance = Int.random(in: 1...25)
+                var chance : Int
+                //check if mini game upgrade is purchased
+                if self.playerDefaults.bool(forKey: "miniup") == true {
+                    chance = Int.random(in: 1...15)
+                    //add another if statement to check if the tier 1 upgrade is unlocked
+                } else {
+                    chance = Int.random(in: 1...25)
+                }
+                print("miniup: \(self.playerDefaults.bool(forKey: "miniup"))")
                 if chance == 1 {
                     print("Chance hit")
                     DispatchQueue.main.async {
@@ -230,6 +248,9 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         //upgrade tier reset for passinc()
         playerDefaults.set(false, forKey: "at1")
         playerDefaults.set(false, forKey: "at2")
+        //
+        playerDefaults.set(false, forKey: "miniup")
+        //upgrade tier reset for minigame tier upgrade (TO BE ADDED)
     }
     
     //Tuffy Button

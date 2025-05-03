@@ -24,12 +24,14 @@ class ShopViewController: MainViewController {
         }
         if playerDefaults.bool(forKey: "autoclicker") == true {
             self.auto.setTitle("Purchased!", for: .normal)
-            // add tier upgrade button lock/unlock logic
-        }
-        Clickcount.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
-        if playerDefaults.bool(forKey: "autoclicker") == true {
             Autobutt.isEnabled = true
             Autobutt.setImage(UIImage(systemName: "lock.open.fill"), for: .normal)
+        }
+        Clickcount.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
+        if playerDefaults.bool(forKey: "miniup") == true {
+            self.minibutt.setTitle( "Purchased!", for: .normal)
+            minigametier.isEnabled = true
+            minigametier.setImage(UIImage(systemName: "lock.open.fill"), for: .normal)
         }
     }
     
@@ -56,6 +58,7 @@ class ShopViewController: MainViewController {
             twotimeupgrade.isEnabled = true
             Clickcount.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
             twotimeupgrade.setImage(UIImage(systemName: "lock.open.fill"), for: .normal)
+            lbl.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
         }
         // Just to see if price properly gets deducted after purchase in xcode debugger thing
         print("\(playerDefaults.integer(forKey: "count"))")
@@ -83,9 +86,33 @@ class ShopViewController: MainViewController {
                 Clickcount.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
                 Autobutt.isEnabled = true
                 Autobutt.setImage(UIImage(systemName: "lock.open.fill"), for: .normal)
+                lbl.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
         }
         // Just to see if price properly gets deducted after purchase in xcode debugger thing
         print("\(playerDefaults.integer(forKey: "count"))")
+    }
+    // Mini game upgrade tier button
+    @IBOutlet var minigametier: UIButton!
+    //minigame purchase button
+    @IBOutlet var minibutt: UIButton!
+    // minigame purchase
+    @IBAction func purchmini(_ sender: Any) {
+        if playerDefaults.bool(forKey: "miniup") == true {
+            self.minibutt.setTitle("Already Purchased!", for: .normal)
+
+        } else if playerDefaults.integer(forKey: "count") < 700 {
+            self.minibutt.setTitle("Not enough clicks!", for: .normal)
+        }
+            else {
+            playerDefaults.set(true, forKey: "miniup")
+            print("purchased mini game upgrade! \(playerDefaults.bool(forKey: "miniup"))")
+            self.minibutt.setTitle("Purchased!", for: .normal)
+            playerDefaults.set(playerDefaults.integer(forKey: "count") - 700, forKey: "count")
+            Clickcount.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
+                minigametier.isEnabled = true
+                minigametier.setImage(UIImage(systemName: "lock.open.fill"), for: .normal)
+                lbl.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
+        }
     }
     /*
     // MARK: - Navigation

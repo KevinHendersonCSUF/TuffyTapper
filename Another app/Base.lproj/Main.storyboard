@@ -338,7 +338,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JAQ-ph-bZs">
-                                <rect key="frame" x="10" y="129" width="373" height="178"/>
+                                <rect key="frame" x="10" y="129" width="373" height="267"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passive Income | PRICE: 1500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTU-R9-LkM">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="20.333333333333332"/>
@@ -391,6 +391,32 @@
                                             <action selector="purchquad:" destination="s5v-80-KqZ" eventType="touchUpInside" id="V7P-UX-afn"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Increase Mini Game Chance | PRICE: 700" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUO-sd-qH2">
+                                        <rect key="frame" x="0.0" y="178" width="373" height="20.333333333333343"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PtS-Fs-Vku">
+                                        <rect key="frame" x="0.0" y="198.33333333333331" width="373" height="34.333333333333343"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Tier Upgrade" image="lock.fill" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="lock.fill" catalog="system" title="Tier Upgrade"/>
+                                        <connections>
+                                            <segue destination="wkr-iV-TqW" kind="show" identifier="mini" id="fwf-51-Ufx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6T-uW-dYt">
+                                        <rect key="frame" x="0.0" y="232.66666666666669" width="373" height="34.333333333333314"/>
+                                        <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Purchase"/>
+                                        <connections>
+                                            <action selector="purchmini:" destination="s5v-80-KqZ" eventType="touchUpInside" id="ThA-63-QfJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taps:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hk3-zd-bN0">
@@ -416,6 +442,8 @@
                         <outlet property="Clickcount" destination="hk3-zd-bN0" id="Xju-MX-IOM"/>
                         <outlet property="auto" destination="me1-6e-8Tw" id="fdI-97-x4S"/>
                         <outlet property="fourpurch" destination="S1x-zV-Tt5" id="bkb-xm-C2U"/>
+                        <outlet property="minibutt" destination="a6T-uW-dYt" id="Nmi-5e-HWE"/>
+                        <outlet property="minigametier" destination="PtS-Fs-Vku" id="ruV-lN-w9g"/>
                         <outlet property="twotimeupgrade" destination="5yy-3P-9Iz" id="xPQ-TF-WVB"/>
                     </connections>
                 </viewController>
@@ -430,6 +458,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxK-2s-NNm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135" y="-1609"/>
+        </scene>
+        <!--Miniup View Controller-->
+        <scene sceneID="lIA-NM-TBj">
+            <objects>
+                <viewController id="wkr-iV-TqW" customClass="MiniupViewController" customModule="Tuffy_Tapper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oIg-zo-uYA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vJl-1a-qeS">
+                                <rect key="frame" x="10" y="79" width="373" height="34.333333333333343"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UHd-tR-iKj"/>
+                        <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="vJl-1a-qeS" firstAttribute="trailing" secondItem="UHd-tR-iKj" secondAttribute="trailing" constant="-10" id="8ph-Ik-ueb"/>
+                            <constraint firstItem="vJl-1a-qeS" firstAttribute="leading" secondItem="UHd-tR-iKj" secondAttribute="leading" constant="10" id="GuT-Oo-AWJ"/>
+                            <constraint firstItem="vJl-1a-qeS" firstAttribute="top" secondItem="UHd-tR-iKj" secondAttribute="top" constant="20" id="gQU-ld-u0C"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="v1i-2I-Z7T"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tOM-Se-R3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004" y="1186"/>
         </scene>
     </scenes>
     <resources>
