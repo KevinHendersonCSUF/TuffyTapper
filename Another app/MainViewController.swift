@@ -1,23 +1,9 @@
 //
-//  ViewController.swift
-//  Another app
+// ViewController.swift
+// Another app
 //
-//  Created by Kevin Henderson on 3/7/25.
+// Created by Kevin Henderson on 3/7/25.
 // Print statements are for testing
-// TODO:
-// * ADD FUNCTIONALITY TO AUTO CLICKER USING MULTITHREADING - DONE, NOW NEED UPGRADES
-//      - * ADD AUTOCLICKER UPGRADES (HOW FAST IT GENERATES MONEY ETC.)
-//      - ^ to do this will need to alter passinc() and play around with resetting operation queue
-//      - once you set conditions in passinc() to check for upgrades, it should be good
-//      - PLANNED UPGRADES TO AUTOCLICKER (NOW CALLED PASSIVE INCOME)
-//          - First upgrade will increase how fast taps are generated (alters the sleep() timer)
-//          - Second upgrade will sync amount of taps generated per second with the 2x taps upgrade
-//              - Example: if 8x taps is unlocked then passive income will generate 8 taps each call instead of 1
-//          - THINK OF MORE UPGRADES LATER
-// * ADD DIFFERENT MINIGAMES
-// * ADD MORE UPGRADES
-//      - For example, an upgrade to decrease rate of decay for hunger and an upgrade to decrease rate of decay for thirst
-// * ADD A PROPER MENU
 
 import UIKit
 
@@ -66,7 +52,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
 
         UIView.animate(withDuration: 1.0, animations: {
             floatingLabel.alpha = 0.0
-            floatingLabel.frame.origin.y -= 30
+            floatingLabel.frame.origin.y -= 50
         }) { _ in
             floatingLabel.removeFromSuperview()
         }
@@ -112,6 +98,8 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         let slotVC = SlotMachineViewController()
         slotVC.modalPresentationStyle = .overFullScreen
         slotVC.currentCount = playerDefaults.integer(forKey: "count")
+        slotVC.lbl = self.lbl
+        slotVC.autocheck = self.autocheck
         slotVC.onWin = { newCount in
             self.playerDefaults.set(newCount, forKey: "count")
             self.lbl.text = "Taps: \(newCount)"
@@ -187,6 +175,9 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                 if self.playerDefaults.bool(forKey: "miniup") == true {
                     chance = Int.random(in: 1...15)
                     //add another if statement to check if the tier 1 upgrade is unlocked
+                    if self.playerDefaults.bool(forKey: "mt1") == true {
+                        chance = Int.random(in: 1...10)
+                    }
                 } else {
                     chance = Int.random(in: 1...25)
                 }
@@ -250,7 +241,10 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         playerDefaults.set(false, forKey: "at2")
         //
         playerDefaults.set(false, forKey: "miniup")
-        //upgrade tier reset for minigame tier upgrade (TO BE ADDED)
+        //upgrade tier reset for minigame tier upgrade
+        playerDefaults.set(false, forKey: "mt1")
+        playerDefaults.set(false, forKey: "mt2")
+
     }
     
     //Tuffy Button

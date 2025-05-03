@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SlotMachineViewController: UIViewController {
+class SlotMachineViewController: MainViewController {
 
     var currentCount: Int = 0
     var onWin: ((Int) -> Void)?
@@ -59,7 +59,15 @@ class SlotMachineViewController: UIViewController {
         spinButton.isHidden = true
         spinButton.isEnabled = false
         let multipliers = [2, 4, 10]
-        let chosen = multipliers.randomElement()!
+        let upmulti = [4, 8, 20]
+        var chosen : Int
+        if playerDefaults.bool(forKey: "mt2") == true {
+            chosen = upmulti.randomElement()!
+        }
+        else {
+            chosen = multipliers.randomElement()!
+
+        }
         let newCount = currentCount * chosen
         resultLabel.text = "🎉 Points multiplied by \(chosen)x!"
         onWin?(newCount)
