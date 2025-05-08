@@ -102,9 +102,9 @@ class TapTheCoinsViewController: UIViewController {
         let y = CGFloat.random(in: 100...(view.bounds.height - size - 100))
 
         let coin = UIButton(frame: CGRect(x: x, y: y, width: size, height: size))
-        coin.setImage(UIImage(named: "tuffy-coin"), for: .normal)
-        coin.imageView?.contentMode = .scaleAspectFit
-        coin.tag = value
+        coin.setImage(UIImage(named: "coin"), for: .normal)
+        coin.titleLabel?.font = .systemFont(ofSize: size * 0.8)
+        coin.tag = value // store point value
         coin.layer.cornerRadius = size / 2
         coin.backgroundColor = UIColor.clear
         coin.addTarget(self, action: #selector(coinTapped(_:)), for: .touchUpInside)
