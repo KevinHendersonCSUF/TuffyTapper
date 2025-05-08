@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0AA878282DCC80310024CF78 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0AA878272DCC80260024CF78 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		0AB4F2D92D7B060E00E56D5D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AA878272DCC80260024CF78 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0AB4F2C22D7B060C00E56D5D /* Tuffy Tapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tuffy Tapper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AB4F2D82D7B060E00E56D5D /* Tuffy TapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tuffy TapperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AB4F2E22D7B060E00E56D5D /* Tuffy TapperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tuffy TapperUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +93,7 @@
 		0AB4F2B92D7B060C00E56D5D = {
 			isa = PBXGroup;
 			children = (
+				0AA878272DCC80260024CF78 /* README.md */,
 				0AB4F2C42D7B060C00E56D5D /* Another app */,
 				0AB4F2DB2D7B060E00E56D5D /* Another appTests */,
 				0AB4F2E52D7B060E00E56D5D /* Another appUITests */,
@@ -225,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AA878282DCC80310024CF78 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

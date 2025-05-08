@@ -254,7 +254,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         //upgrade tier reset for passinc()
         playerDefaults.set(false, forKey: "at1")
         playerDefaults.set(false, forKey: "at2")
-        //
+        //MiniGame upgrade
         playerDefaults.set(false, forKey: "miniup")
         //upgrade tier reset for minigame tier upgrade
         playerDefaults.set(false, forKey: "mt1")
