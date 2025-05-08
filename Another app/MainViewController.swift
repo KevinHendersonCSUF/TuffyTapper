@@ -11,16 +11,19 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     // minigame button timer
     var minigameButtonTimer: Timer?
-
+    
     //For player save
     let playerDefaults = UserDefaults.standard
-
+    
     @IBOutlet var lbl: UILabel!
     var cnt = 0
     
     // will allow for only one passinc() call per app launch
     var autocheck = false
-
+    
+    // Alternating mini game flag
+    var nextMinigameIsSlot = true
+    
     
     // Button styling, alter later to include other colors and stuff
     func styleButton(_ button: UIButton, titleSize: CGFloat = 18) {
@@ -39,7 +42,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-
+    
     
     // Increment animation
     func showFloatingText(value: Int, at position: CGPoint) {
@@ -47,16 +50,16 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         let randomYOffset = CGFloat.random(in: -20...20)
         let randomColor = [UIColor.green, UIColor.cyan, UIColor.systemYellow, UIColor.white].randomElement() ?? .green
         let randomScale = CGFloat.random(in: 0.8...1.2)
-
+        
         let floatingLabel = UILabel(frame: CGRect(x: position.x + randomXOffset, y: position.y + randomYOffset, width: 80, height: 30))
         floatingLabel.text = "+\(value)"
         floatingLabel.textColor = randomColor
         floatingLabel.font = UIFont.boldSystemFont(ofSize: 18 * randomScale)
         floatingLabel.textAlignment = .center
         floatingLabel.alpha = 1.0
-
+        
         self.view.addSubview(floatingLabel)
-
+        
         UIView.animate(withDuration: 1.0, animations: {
             floatingLabel.alpha = 0.0
             floatingLabel.transform = CGAffineTransform(translationX: 0, y: -60).scaledBy(x: 1.1, y: 1.1)
@@ -64,30 +67,30 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             floatingLabel.removeFromSuperview()
         }
     }
-
-
+    
+    
     
     // Used for Segue transition to avoid unexpectedly unwrapping nil error by passing variables to destination viewcontroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "navigationSegue"{
-        let shopview = segue.destination as! ShopViewController
-        //Carries lbl variable over to shopviewcontroller so that it doesnt return nil when activating segue
-        shopview.lbl = lbl
-        shopview.autocheck = autocheck
-        shopview.tuffy = tuffy
-    }
+            let shopview = segue.destination as! ShopViewController
+            //Carries lbl variable over to shopviewcontroller so that it doesnt return nil when activating segue
+            shopview.lbl = lbl
+            shopview.autocheck = autocheck
+            shopview.tuffy = tuffy
+        }
         if segue.identifier == "tuffyshopsegue"{
             let tufshop = segue.destination as! TuffyNeedsController
             tufshop.lbl = lbl
             tufshop.autocheck = autocheck
             tufshop.tuffy = tuffy
-    }
+        }
         if segue.identifier == "two"{
             let tiertime = segue.destination as! TwoTimeViewController
             tiertime.lbl = lbl
             tiertime.autocheck = autocheck
             tiertime.tuffy = tuffy
-    }
+        }
         if segue.identifier == "autotier"{
             let tierauto = segue.destination as! AutoclickViewController
             tierauto.lbl = lbl
@@ -106,7 +109,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         // Cancel auto-dismiss timer if player taps it
         minigameButtonTimer?.invalidate()
         minigameButton.removeFromSuperview()
-
+        
         // Show slot machine overlay
         let slotVC = SlotMachineViewController()
         slotVC.modalPresentationStyle = .overFullScreen
@@ -118,21 +121,71 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             self.playerDefaults.set(newCount, forKey: "count")
             self.lbl.text = "Taps: \(newCount)"
         }
-
+        
         self.present(slotVC, animated: true)
     }
-
-
+    
+    
+    // Falling coins game
+    func launchFallingCoinsGame() {
+        let coinsVC = TapTheCoinsViewController()
+        coinsVC.modalPresentationStyle = .overFullScreen
+        coinsVC.onComplete = { earned in
+            let newCount = self.playerDefaults.integer(forKey: "count") + earned
+            self.playerDefaults.set(newCount, forKey: "count")
+            self.lbl.text = "Taps: \(newCount)"
+        }
+        self.present(coinsVC, animated: true)
+    }
+    
+    
+    
     // Minigame button
     lazy var minigameButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 120, y: 670, width: 150, height: 50))
         button.backgroundColor = .systemPurple
-        button.setTitle("🎰 SPIN", for: .normal)
+        button.setTitle("PLAY", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(launchSlotMachine), for: .touchUpInside)
+        button.addTarget(self, action: #selector(launchRandomMinigame), for: .touchUpInside)
         return button
     }()
+    
+    func showMinigameButton() {
+        DispatchQueue.main.async {
+            // Invalidate any existing timer
+            self.minigameButtonTimer?.invalidate()
+            
+            // Always remove and re-add the button
+            self.minigameButton.removeFromSuperview()
+            self.view.addSubview(self.minigameButton)
+            
+            // Set new timer
+            self.minigameButtonTimer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { _ in
+                self.minigameButton.removeFromSuperview()
+                self.minigameButtonTimer = nil
+            }
+            
+            print("Minigame button added (passive or dev)")
+        }
+    }
+    
+    
+    @objc func launchRandomMinigame() {
+        minigameButtonTimer?.invalidate()
+        minigameButton.removeFromSuperview()
+        
+        if nextMinigameIsSlot {
+            launchSlotMachine()
+        } else {
+            launchFallingCoinsGame()
+        }
+        
+        // Flip for next round
+        nextMinigameIsSlot.toggle()
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,12 +229,12 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                     print("TIER 2 UNLOCKED")
                     self.cnt += self.playerDefaults.integer(forKey: "times")
                     DispatchQueue.main.async{
-                            self.showFloatingText(value: self.playerDefaults.integer(forKey: "times"), at: CGPoint(x: self.lbl.center.x, y: self.lbl.frame.minY))
+                        self.showFloatingText(value: self.playerDefaults.integer(forKey: "times"), at: CGPoint(x: self.lbl.center.x, y: self.lbl.frame.minY))
                     }
                 } else {
                     self.cnt += 1
                     DispatchQueue.main.async{
-                            self.showFloatingText(value: 1, at: CGPoint(x: self.lbl.center.x, y: self.lbl.frame.minY))
+                        self.showFloatingText(value: 1, at: CGPoint(x: self.lbl.center.x, y: self.lbl.frame.minY))
                     }
                 }
                 self.playerDefaults.set(self.cnt, forKey: "count")
@@ -189,7 +242,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                 
                 //Performing label text update on main thread using Grand Central Dispatch
                 DispatchQueue.main.async{
-                        self.lbl.text = "Taps: \(self.playerDefaults.integer(forKey: "count"))"
+                    self.lbl.text = "Taps: \(self.playerDefaults.integer(forKey: "count"))"
                 }
                 
                 // Minigame trigger check
@@ -207,19 +260,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                 print("miniup: \(self.playerDefaults.bool(forKey: "miniup"))")
                 if chance == 1 {
                     print("Chance hit")
-                    DispatchQueue.main.async {
-                        if !self.minigameButton.isDescendant(of: self.view) {
-                            self.view.addSubview(self.minigameButton)
-
-                            // Cancel any existing timer
-                            self.minigameButtonTimer?.invalidate()
-
-                            // Set a timer to remove the button after 10 seconds
-                            self.minigameButtonTimer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { _ in
-                                self.minigameButton.removeFromSuperview()
-                            }
-                        }
-                    }
+                    self.showMinigameButton()
                 } else {
                     print("Chance fail")
                 }
@@ -286,12 +327,12 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     //main Tuffy button functionality
     @IBAction func btn(_ sender: Any) {
         cnt = playerDefaults.integer(forKey: "count")
-
+        
         //Makes Tuffy Bounce when pressed
         UIView.animate(withDuration: 0.07) {
             self.tuffy.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         }
-
+        
         //check if 2x money is purchased
         let gain: Int
         if playerDefaults.bool(forKey: "4x") == true {
@@ -299,19 +340,19 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         } else {
             gain = 1
         }
-
+        
         cnt += gain
         playerDefaults.set(cnt, forKey: "count")
-
+        
         // Update the top label and animate it
         lbl.text = "Taps: \(cnt)"
         animateLabelBounce(lbl)
         showFloatingText(value: gain, at: CGPoint(x: lbl.center.x, y: lbl.frame.minY))
-
+        
         // Reset Tuffy to original size
         tuffy.transform = CGAffineTransform.identity
     }
-
+    
     //
     //Dev Mode for testing
     @IBOutlet var devinp: UITextField!
@@ -322,22 +363,8 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
         print("return pressed")
         if devinp.text == "slot" {
-            DispatchQueue.main.async {
-                if !self.minigameButton.isDescendant(of: self.view) {
-                    self.view.addSubview(self.minigameButton)
-                    
-                    // Cancel any existing timer
-                    self.minigameButtonTimer?.invalidate()
-                    
-                    // Set a timer to remove the button after 10 seconds
-                    self.minigameButtonTimer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { _ in
-                        self.minigameButton.removeFromSuperview()
-                    }
-                }
-            }
-        }
-        print("slot pressed")
+            self.showMinigameButton()
+            print("slot pressed")
         }
     }
-    
-
+}
