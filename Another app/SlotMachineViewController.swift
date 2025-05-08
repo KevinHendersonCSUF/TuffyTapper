@@ -59,6 +59,7 @@ class SlotMachineViewController: MainViewController {
         spinButton.isHidden = true
         spinButton.isEnabled = false
         let multipliers = [2, 4, 10]
+        // alternate pool of values used when tier 2 up minigame upgrade is unlocked
         let upmulti = [4, 8, 20]
         var chosen : Int
         if playerDefaults.bool(forKey: "mt2") == true {

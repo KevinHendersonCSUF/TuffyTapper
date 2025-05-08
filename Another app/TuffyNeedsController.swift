@@ -33,6 +33,7 @@ class TuffyNeedsController: MainViewController{
         if playerDefaults.integer(forKey: "count") < 300{
             fancybutt.setTitle( "Not enough taps!", for: .normal)
         }
+        // if player has enough, subtract money, unlock cosmetic, apply cosmetic, then change text of buttons based on if other cosmetic is unlocked
         else if playerDefaults.integer(forKey: "count") >= 300{
             playerDefaults.set(true, forKey: "fancy")
             playerDefaults.set(playerDefaults.integer(forKey: "count") - 300, forKey: "count")
@@ -60,6 +61,7 @@ class TuffyNeedsController: MainViewController{
         if playerDefaults.integer(forKey: "count") < 2000{
             cyborgbutt.setTitle( "Not enough taps!", for: .normal)
         }
+        // if player has enough, subtract money, unlock cosmetic, apply cosmetic, then change text of buttons based on if other cosmetic is unlocked
         else if playerDefaults.integer(forKey: "count") >= 2000{
             playerDefaults.set(true, forKey: "cyborg")
             playerDefaults.set(playerDefaults.integer(forKey: "count") - 2000, forKey: "count")
