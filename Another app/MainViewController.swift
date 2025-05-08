@@ -20,6 +20,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     // will allow for only one passinc() call per app launch
     var autocheck = false
+
     
     // Button styling, alter later to include other colors and stuff
     func styleButton(_ button: UIButton, titleSize: CGFloat = 18) {
@@ -42,21 +43,28 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     // Increment animation
     func showFloatingText(value: Int, at position: CGPoint) {
-        let floatingLabel = UILabel(frame: CGRect(x: position.x - 30, y: position.y, width: 60, height: 30))
+        let randomXOffset = CGFloat.random(in: -30...30)
+        let randomYOffset = CGFloat.random(in: -20...20)
+        let randomColor = [UIColor.green, UIColor.cyan, UIColor.systemYellow, UIColor.white].randomElement() ?? .green
+        let randomScale = CGFloat.random(in: 0.8...1.2)
+
+        let floatingLabel = UILabel(frame: CGRect(x: position.x + randomXOffset, y: position.y + randomYOffset, width: 80, height: 30))
         floatingLabel.text = "+\(value)"
-        floatingLabel.textColor = .green
-        floatingLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        floatingLabel.textColor = randomColor
+        floatingLabel.font = UIFont.boldSystemFont(ofSize: 18 * randomScale)
         floatingLabel.textAlignment = .center
         floatingLabel.alpha = 1.0
+
         self.view.addSubview(floatingLabel)
 
         UIView.animate(withDuration: 1.0, animations: {
             floatingLabel.alpha = 0.0
-            floatingLabel.frame.origin.y -= 50
+            floatingLabel.transform = CGAffineTransform(translationX: 0, y: -60).scaledBy(x: 1.1, y: 1.1)
         }) { _ in
             floatingLabel.removeFromSuperview()
         }
     }
+
 
     
     // Used for Segue transition to avoid unexpectedly unwrapping nil error by passing variables to destination viewcontroller
