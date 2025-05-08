@@ -6,20 +6,17 @@ class TapTheCoinsViewController: UIViewController {
     private var totalScore = 0
     private var coinSpawnTimer: Timer?
     private var coinLifespan: TimeInterval = 1.5
-    private let coinSpawnRate: TimeInterval = 0.3
-    
+
     let startButton = UIButton()
     let countdownLabel = UILabel()
     let instructionLabel = UILabel()
-
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.green.withAlphaComponent(0.85)
         setupStartButton()
     }
-    
+
     func setupStartButton() {
         startButton.setTitle("Start!", for: .normal)
         startButton.titleLabel?.font = .boldSystemFont(ofSize: 28)
@@ -30,28 +27,24 @@ class TapTheCoinsViewController: UIViewController {
         startButton.addTarget(self, action: #selector(startCountdown), for: .touchUpInside)
 
         view.addSubview(startButton)
-        
+
         instructionLabel.text = "Tap as many coins as you can!"
         instructionLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         instructionLabel.textColor = .white
         instructionLabel.textAlignment = .center
         instructionLabel.translatesAutoresizingMaskIntoConstraints = false
-
         view.addSubview(instructionLabel)
 
         NSLayoutConstraint.activate([
             instructionLabel.bottomAnchor.constraint(equalTo: startButton.topAnchor, constant: -16),
             instructionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        ])
-
-        NSLayoutConstraint.activate([
             startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             startButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             startButton.widthAnchor.constraint(equalToConstant: 150),
             startButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-    
+
     @objc func startCountdown() {
         instructionLabel.removeFromSuperview()
         startButton.removeFromSuperview()
@@ -82,39 +75,42 @@ class TapTheCoinsViewController: UIViewController {
         }
     }
 
-
-
     func startGame() {
-        // Spawn coins regularly
-        coinSpawnTimer = Timer.scheduledTimer(withTimeInterval: coinSpawnRate, repeats: true) { _ in
+        let hasMT1 = UserDefaults.standard.bool(forKey: "mt1")
+        let spawnRate = hasMT1 ? 0.2 : 0.3  // faster spawn with upgrade
+
+        coinSpawnTimer = Timer.scheduledTimer(withTimeInterval: spawnRate, repeats: true) { _ in
             self.spawnCoin()
         }
 
-        // End game after 5 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             self.endGame()
         }
     }
 
     func spawnCoin() {
-        // Random size and value
-        let sizes: [(CGFloat, Int)] = [(40, 100), (30, 200), (20, 400)]
+        var sizes: [(CGFloat, Int)] = [(40, 100), (30, 200), (20, 400)]
+
+        let hasMT2 = UserDefaults.standard.bool(forKey: "mt2")
+        if hasMT2 {
+            sizes += [(20, 400), (20, 400), (30, 200)] // Weight higher value coins
+        }
+
         guard let (size, value) = sizes.randomElement() else { return }
 
         let x = CGFloat.random(in: 20...(view.bounds.width - size - 20))
         let y = CGFloat.random(in: 100...(view.bounds.height - size - 100))
 
         let coin = UIButton(frame: CGRect(x: x, y: y, width: size, height: size))
-        coin.setTitle("🪙", for: .normal)
-        coin.titleLabel?.font = .systemFont(ofSize: size * 0.8)
-        coin.tag = value // store point value
+        coin.setImage(UIImage(named: "tuffy-coin"), for: .normal)
+        coin.imageView?.contentMode = .scaleAspectFit
+        coin.tag = value
         coin.layer.cornerRadius = size / 2
         coin.backgroundColor = UIColor.clear
         coin.addTarget(self, action: #selector(coinTapped(_:)), for: .touchUpInside)
 
         view.addSubview(coin)
 
-        // Auto-remove after a short lifespan
         DispatchQueue.main.asyncAfter(deadline: .now() + coinLifespan) {
             if coin.superview != nil {
                 coin.removeFromSuperview()
