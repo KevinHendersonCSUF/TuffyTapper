@@ -66,26 +66,31 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         //Carries lbl variable over to shopviewcontroller so that it doesnt return nil when activating segue
         shopview.lbl = lbl
         shopview.autocheck = autocheck
+        shopview.tuffy = tuffy
     }
         if segue.identifier == "tuffyshopsegue"{
             let tufshop = segue.destination as! TuffyNeedsController
             tufshop.lbl = lbl
             tufshop.autocheck = autocheck
+            tufshop.tuffy = tuffy
     }
         if segue.identifier == "two"{
             let tiertime = segue.destination as! TwoTimeViewController
             tiertime.lbl = lbl
             tiertime.autocheck = autocheck
+            tiertime.tuffy = tuffy
     }
         if segue.identifier == "autotier"{
             let tierauto = segue.destination as! AutoclickViewController
             tierauto.lbl = lbl
             tierauto.autocheck = autocheck
+            tierauto.tuffy = tuffy
         }
         if segue.identifier == "mini"{
             let min = segue.destination as! MiniupViewController
             min.lbl = lbl
             min.autocheck = autocheck
+            min.tuffy = tuffy
         }
     }
     
@@ -100,6 +105,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         slotVC.currentCount = playerDefaults.integer(forKey: "count")
         slotVC.lbl = self.lbl
         slotVC.autocheck = self.autocheck
+        slotVC.tuffy = self.tuffy
         slotVC.onWin = { newCount in
             self.playerDefaults.set(newCount, forKey: "count")
             self.lbl.text = "Taps: \(newCount)"
@@ -136,6 +142,15 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         if autocheck == false {
             passinc()
             autocheck = true
+        }
+        //loads purchased cosmetics
+        if playerDefaults.bool(forKey: "fancy") == true && playerDefaults.bool(forKey: "fancyon") == true{
+            tuffy.setImage(UIImage(named: "fancy"), for: .normal)
+            tuffy.setImage(UIImage(named: "fancy1"), for: .highlighted)
+        }
+        if playerDefaults.bool(forKey: "cyborg") == true && playerDefaults.bool(forKey: "cyborgon") == true{
+            tuffy.setImage(UIImage(named: "cyborg"), for: .normal)
+            tuffy.setImage(UIImage(named: "cyborg1"), for: .highlighted)
         }
     }
     
@@ -244,7 +259,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         //upgrade tier reset for minigame tier upgrade
         playerDefaults.set(false, forKey: "mt1")
         playerDefaults.set(false, forKey: "mt2")
-
+        //cosmetics
+        playerDefaults.set(false, forKey: "fancy")
+        playerDefaults.set(false, forKey: "cyborg")
+        playerDefaults.set(false, forKey: "fancyon")
+        playerDefaults.set(false, forKey: "cyborgon")
+        tuffy.setImage(UIImage(named: "Tuffy1"), for: .normal)
+        tuffy.setImage(UIImage(named: "Tuffy3"), for: .highlighted)
     }
     
     //Tuffy Button
@@ -288,7 +309,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var devinp: UITextField!
     @IBAction func Keychecker(_ sender: Any) {
         if devinp.text == "dev" {
-            playerDefaults.set(999999999, forKey: "count")
+            playerDefaults.set(99999, forKey: "count")
             self.lbl.text = "Taps: \(playerDefaults.integer(forKey: "count"))"
         }
         print("return pressed")
