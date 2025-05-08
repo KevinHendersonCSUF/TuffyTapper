@@ -105,7 +105,7 @@ class TapTheCoinsViewController: UIViewController {
         let y = CGFloat.random(in: 100...(view.bounds.height - size - 100))
 
         let coin = UIButton(frame: CGRect(x: x, y: y, width: size, height: size))
-        coin.setTitle("🪙", for: .normal)
+        coin.setImage(UIImage(named: "coin"), for: .normal)
         coin.titleLabel?.font = .systemFont(ofSize: size * 0.8)
         coin.tag = value // store point value
         coin.layer.cornerRadius = size / 2
