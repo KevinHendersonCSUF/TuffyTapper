@@ -57,7 +57,7 @@ class SlotMachineViewController: MainViewController {
     
     func startSpinningReels(completion: @escaping () -> Void) {
         var elapsedTime: Double = 0
-        var finalEmoji = slotEmojis.randomElement() ?? "🍒"
+        let finalEmoji = slotEmojis.randomElement() ?? "🍒"
 
         reelTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             // Spin with random emojis
