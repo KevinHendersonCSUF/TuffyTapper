@@ -80,7 +80,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             shopview.tuffy = tuffy
         }
         if segue.identifier == "tuffyshopsegue"{
-            let tufshop = segue.destination as! TuffyNeedsController
+            let tufshop = segue.destination as! CosmeticsController
             tufshop.lbl = lbl
             tufshop.autocheck = autocheck
             tufshop.tuffy = tuffy

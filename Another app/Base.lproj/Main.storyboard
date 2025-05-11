@@ -195,7 +195,7 @@
         <!--Cosmetics Shop-->
         <scene sceneID="TgZ-lJ-kUa">
             <objects>
-                <viewController id="1s8-iq-RBt" customClass="TuffyNeedsController" customModule="Tuffy_Tapper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1s8-iq-RBt" customClass="CosmeticsController" customModule="Tuffy_Tapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d1L-hv-Hdy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
